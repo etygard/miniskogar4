@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+from pathlib import Path
+
+html = """<!DOCTYPE html>
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -6,161 +9,50 @@
 <title>Miniskog Helsingborg</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-:root{
---green:#1a3a1f;
---green2:#2d5a34;
---cream:#f5f0e8;
---gold:#c8a84b;
-}
+:root{--green:#1a3a1f;--green2:#2d5a34;--cream:#f5f0e8;--gold:#c8a84b;}
 *{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Lato,sans-serif;background:var(--cream)}
 html{scroll-behavior:smooth}
-body{font-family:Lato,sans-serif;background:var(--cream);color:#222}
 
-nav{
-position:fixed;top:0;left:0;right:0;z-index:1000;
-display:flex;justify-content:space-between;align-items:center;
-padding:1rem 3rem;
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(10px);
-}
-.nav-logo{font-family:'Playfair Display',serif;color:white;font-size:1.5rem}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;padding:1rem 2rem;background:rgba(0,0,0,.35);backdrop-filter:blur(10px)}
+.nav-logo{font-family:'Playfair Display',serif;color:#fff;font-size:1.4rem}
 .nav-logo span{color:var(--gold)}
 nav ul{display:flex;gap:2rem;list-style:none}
-nav a{text-decoration:none;color:white}
+nav a{color:#fff;text-decoration:none}
 
-.hero{
-height:100vh;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-}
-.hero video{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:cover;
-}
-.hero-content{
-position:relative;
-z-index:2;
-text-align:center;
-padding:2rem;
-}
-.welcome{
-font-family:'Playfair Display',serif;
-font-size:clamp(3rem,8vw,6rem);
-font-weight:900;
-color:white;
-opacity:0;
-animation:fadeUp 2.5s ease forwards;
-animation-delay:2s;
-text-shadow:0 6px 30px rgba(0,0,0,.75);
-}
-.hero-sub{
-margin-top:1rem;
-font-size:1.2rem;
-color:white;
-opacity:0;
-animation:fadeUp 2.5s ease forwards;
-animation-delay:3.5s;
-text-shadow:0 4px 20px rgba(0,0,0,.75);
-}
-
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
-}
+.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem}
+.welcome{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);color:white;opacity:0;animation:fade 2.5s forwards 2s;text-shadow:0 5px 25px rgba(0,0,0,.7)}
+.subtitle{color:white;font-size:1.2rem;margin-top:1rem;opacity:0;animation:fade 2.5s forwards 3.5s;text-shadow:0 5px 25px rgba(0,0,0,.7)}
+@keyframes fade{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 
 .section{padding:6rem 2rem}
 .container{max-width:1100px;margin:auto}
-.title{
-font-family:'Playfair Display',serif;
-font-size:clamp(2rem,4vw,3rem);
-text-align:center;
-margin-bottom:1rem;
-color:var(--green);
-}
-.lead{
-max-width:750px;
-margin:auto;
-text-align:center;
-line-height:1.8;
-}
+.title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);text-align:center;margin-bottom:1rem;color:var(--green)}
+.lead{text-align:center;max-width:800px;margin:auto;line-height:1.8}
 
-.facts{
-background:var(--green);
-color:white;
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-padding:3rem 1rem;
-}
-.fact{text-align:center;padding:1rem 2rem}
-.fact strong{
-display:block;
-font-size:2.8rem;
-font-family:'Playfair Display',serif;
-color:var(--gold);
-}
+.facts{background:var(--green);color:#fff;display:flex;justify-content:center;flex-wrap:wrap;padding:3rem 1rem}
+.fact{padding:1rem 2rem;text-align:center}
+.fact strong{display:block;font-size:2.8rem;color:var(--gold);font-family:'Playfair Display',serif}
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:1.5rem;
-margin-top:3rem;
-}
-.card{
-background:white;
-padding:2rem;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem}
+.card{background:#fff;padding:2rem;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
 
-.contact{
-background:linear-gradient(135deg,var(--green),#0f2313);
-color:white;
-}
-form{
-max-width:700px;
-margin:2rem auto 0;
-display:flex;
-flex-direction:column;
-gap:1rem;
-}
-.row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:1rem;
-}
-input,textarea{
-padding:1rem;
-border:none;
-border-radius:6px;
-}
-button{
-padding:1rem;
-background:var(--gold);
-border:none;
-border-radius:6px;
-font-weight:bold;
-cursor:pointer;
-}
+.contact{background:linear-gradient(135deg,var(--green),#0f2313);color:#fff}
 
-footer{
-background:#081008;
-color:white;
-padding:2rem;
-text-align:center;
-}
+.contact-video-wrapper{max-width:900px;margin:40px auto;position:relative;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.contact-video-wrapper video{width:100%;display:block}
+.sound-btn{position:absolute;bottom:20px;right:20px;background:rgba(255,255,255,.95);border:none;border-radius:50px;padding:14px 22px;font-weight:700;cursor:pointer}
 
-@media(max-width:768px){
-nav{padding:1rem}
-.row{grid-template-columns:1fr}
-nav ul{gap:1rem}
-}
+form{max-width:700px;margin:2rem auto 0;display:flex;flex-direction:column;gap:1rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+input,textarea{padding:1rem;border:none;border-radius:6px}
+button.submit{padding:1rem;border:none;background:var(--gold);font-weight:bold;border-radius:6px}
+
+footer{background:#081008;color:white;text-align:center;padding:2rem}
+
+@media(max-width:768px){.row{grid-template-columns:1fr}nav ul{gap:1rem}}
 </style>
 </head>
 <body>
@@ -178,19 +70,16 @@ nav ul{gap:1rem}
 <video autoplay muted loop playsinline>
 <source src="HemsidSKogsfeeling.mp4" type="video/mp4">
 </video>
-
 <div class="hero-content">
 <h1 class="welcome">Välkommen till din skog!</h1>
-<p class="hero-sub">Där natur, människor och biologisk mångfald får växa tillsammans.</p>
+<p class="subtitle">Där natur, människor och biologisk mångfald får växa tillsammans.</p>
 </div>
 </section>
 
 <section class="section" id="om">
 <div class="container">
 <h2 class="title">Rötterna finns i Helsingborg</h2>
-<p class="lead">
-Vi arbetar för att skapa fler gröna miljöer genom miniskogar som stärker den biologiska mångfalden, förbättrar stadsmiljön och bidrar till ett mer hållbart samhälle.
-</p>
+<p class="lead">Vi arbetar för att skapa fler gröna miljöer genom miniskogar som stärker den biologiska mångfalden och gör staden grönare.</p>
 </div>
 </section>
 
@@ -203,34 +92,25 @@ Vi arbetar för att skapa fler gröna miljöer genom miniskogar som stärker den
 <section class="section" id="metod">
 <div class="container">
 <h2 class="title">Så går det till</h2>
-
 <div class="cards">
-<div class="card">
-<h3>01 Analys</h3>
-<p>Vi undersöker platsens förutsättningar och möjligheter.</p>
-</div>
-
-<div class="card">
-<h3>02 Förberedelse</h3>
-<p>Jorden förbättras för att ge växterna bästa möjliga start.</p>
-</div>
-
-<div class="card">
-<h3>03 Plantering</h3>
-<p>Träd och buskar planteras tätt för att skapa en snabbväxande skog.</p>
-</div>
+<div class="card"><h3>01 Analys</h3><p>Vi undersöker platsens förutsättningar.</p></div>
+<div class="card"><h3>02 Förberedelse</h3><p>Jorden förbättras för bästa möjliga tillväxt.</p></div>
+<div class="card"><h3>03 Plantering</h3><p>Vi planterar tätt för snabb etablering.</p></div>
 </div>
 </div>
 </section>
 
 <section class="section contact" id="kontakt">
 <div class="container">
-<h2 class="title" style="color:white;">Plantera en miniskog</h2>
+<h2 class="title" style="color:white">Plantera en miniskog</h2>
+<p class="lead">Kontakta oss om du vill veta mer om hur en miniskog kan passa din verksamhet eller fastighet.</p>
 
-<p class="lead">
-Genom Miyawaki-metoden skapar vi täta, biologiskt rika skogar på små ytor.
-Kontakta oss om du vill veta mer om hur en miniskog kan passa just din verksamhet eller fastighet.
-</p>
+<div class="contact-video-wrapper">
+<video id="forestVideo" autoplay muted loop playsinline>
+<source src="HemsidSKogsfeeling.mp4" type="video/mp4">
+</video>
+<button id="soundButton" class="sound-btn">🔊 Slå på ljud</button>
+</div>
 
 <form>
 <div class="row">
@@ -239,14 +119,31 @@ Kontakta oss om du vill veta mer om hur en miniskog kan passa just din verksamhe
 </div>
 <input type="email" placeholder="E-post">
 <textarea rows="6" placeholder="Berätta om din idé..."></textarea>
-<button>Skicka förfrågan</button>
+<button class="submit" type="submit">Skicka förfrågan</button>
 </form>
 </div>
 </section>
 
-<footer>
-© 2026 Miniskog Helsingborg
-</footer>
+<footer>© 2026 Miniskog Helsingborg</footer>
+
+<script>
+const video=document.getElementById('forestVideo');
+const btn=document.getElementById('soundButton');
+btn.addEventListener('click',()=>{
+ if(video.muted){
+   video.muted=false;
+   btn.textContent='🔇 Stäng av ljud';
+ }else{
+   video.muted=true;
+   btn.textContent='🔊 Slå på ljud';
+ }
+});
+</script>
 
 </body>
-</html>
+</html>"""
+
+path="/mnt/data/index-premium-v2.html"
+Path(path).write_text(html, encoding="utf-8")
+print(path)
+
