@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miniskog Helsingborg</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--green:#1a3a1f;
+--green2:#2d5a34;
+--cream:#f5f0e8;
+--gold:#c8a84b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Lato,sans-serif;background:var(--cream);color:#222}
+
+nav{
+position:fixed;top:0;left:0;right:0;z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:1rem 3rem;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(10px);
+}
+.nav-logo{font-family:'Playfair Display',serif;color:white;font-size:1.5rem}
+.nav-logo span{color:var(--gold)}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{text-decoration:none;color:white}
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+.hero video{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.hero-content{
+position:relative;
+z-index:2;
+text-align:center;
+padding:2rem;
+}
+.welcome{
+font-family:'Playfair Display',serif;
+font-size:clamp(3rem,8vw,6rem);
+font-weight:900;
+color:white;
+opacity:0;
+animation:fadeUp 2.5s ease forwards;
+animation-delay:2s;
+text-shadow:0 6px 30px rgba(0,0,0,.75);
+}
+.hero-sub{
+margin-top:1rem;
+font-size:1.2rem;
+color:white;
+opacity:0;
+animation:fadeUp 2.5s ease forwards;
+animation-delay:3.5s;
+text-shadow:0 4px 20px rgba(0,0,0,.75);
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.section{padding:6rem 2rem}
+.container{max-width:1100px;margin:auto}
+.title{
+font-family:'Playfair Display',serif;
+font-size:clamp(2rem,4vw,3rem);
+text-align:center;
+margin-bottom:1rem;
+color:var(--green);
+}
+.lead{
+max-width:750px;
+margin:auto;
+text-align:center;
+line-height:1.8;
+}
+
+.facts{
+background:var(--green);
+color:white;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+padding:3rem 1rem;
+}
+.fact{text-align:center;padding:1rem 2rem}
+.fact strong{
+display:block;
+font-size:2.8rem;
+font-family:'Playfair Display',serif;
+color:var(--gold);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:1.5rem;
+margin-top:3rem;
+}
+.card{
+background:white;
+padding:2rem;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.contact{
+background:linear-gradient(135deg,var(--green),#0f2313);
+color:white;
+}
+form{
+max-width:700px;
+margin:2rem auto 0;
+display:flex;
+flex-direction:column;
+gap:1rem;
+}
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1rem;
+}
+input,textarea{
+padding:1rem;
+border:none;
+border-radius:6px;
+}
+button{
+padding:1rem;
+background:var(--gold);
+border:none;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+background:#081008;
+color:white;
+padding:2rem;
+text-align:center;
+}
+
+@media(max-width:768px){
+nav{padding:1rem}
+.row{grid-template-columns:1fr}
+nav ul{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-logo">Mini<span>skog</span> Helsingborg</div>
+<ul>
+<li><a href="#om">Om oss</a></li>
+<li><a href="#metod">Metoden</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<video autoplay muted loop playsinline>
+<source src="HemsidSKogsfeeling.mp4" type="video/mp4">
+</video>
+
+<div class="hero-content">
+<h1 class="welcome">Välkommen till din skog!</h1>
+<p class="hero-sub">Där natur, människor och biologisk mångfald får växa tillsammans.</p>
+</div>
+</section>
+
+<section class="section" id="om">
+<div class="container">
+<h2 class="title">Rötterna finns i Helsingborg</h2>
+<p class="lead">
+Vi arbetar för att skapa fler gröna miljöer genom miniskogar som stärker den biologiska mångfalden, förbättrar stadsmiljön och bidrar till ett mer hållbart samhälle.
+</p>
+</div>
+</section>
+
+<div class="facts">
+<div class="fact"><strong>12</strong>Miniskogar</div>
+<div class="fact"><strong>8 000</strong>Träd & buskar</div>
+<div class="fact"><strong>30×</strong>Snabbare tillväxt</div>
+</div>
+
+<section class="section" id="metod">
+<div class="container">
+<h2 class="title">Så går det till</h2>
+
+<div class="cards">
+<div class="card">
+<h3>01 Analys</h3>
+<p>Vi undersöker platsens förutsättningar och möjligheter.</p>
+</div>
+
+<div class="card">
+<h3>02 Förberedelse</h3>
+<p>Jorden förbättras för att ge växterna bästa möjliga start.</p>
+</div>
+
+<div class="card">
+<h3>03 Plantering</h3>
+<p>Träd och buskar planteras tätt för att skapa en snabbväxande skog.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section contact" id="kontakt">
+<div class="container">
+<h2 class="title" style="color:white;">Plantera en miniskog</h2>
+
+<p class="lead">
+Genom Miyawaki-metoden skapar vi täta, biologiskt rika skogar på små ytor.
+Kontakta oss om du vill veta mer om hur en miniskog kan passa just din verksamhet eller fastighet.
+</p>
+
+<form>
+<div class="row">
+<input placeholder="Namn">
+<input placeholder="Organisation">
+</div>
+<input type="email" placeholder="E-post">
+<textarea rows="6" placeholder="Berätta om din idé..."></textarea>
+<button>Skicka förfrågan</button>
+</form>
+</div>
+</section>
+
+<footer>
+© 2026 Miniskog Helsingborg
+</footer>
+
+</body>
+</html>
